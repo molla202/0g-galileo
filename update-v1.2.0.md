@@ -2,8 +2,7 @@
 
 ```
 sudo systemctl stop 0gchaind geth
-```
-```
+
 cd $HOME
 wget -q https://github.com/0glabs/0gchain-NG/releases/download/v1.2.0/galileo-v1.2.0.tar.gz
 tar -xzf galileo-v1.2.0.tar.gz
@@ -13,12 +12,10 @@ chmod +x $HOME/galileo-update-v1.2.0/bin/0gchaind
 chmod +x $HOME/galileo-update-v1.2.0/bin/geth
 cp $HOME/galileo-update-v1.2.0/bin/geth $HOME/go/bin/geth
 cp $HOME/galileo-update-v1.2.0/bin/0gchaind $HOME/go/bin/0gchaind
-```
-```
+
 echo "export OG_PORT=56" >> $HOME/.bash_profile
 source $HOME/.bash_profile
-```
-```
+
 sudo tee /etc/systemd/system/0gchaind.service > /dev/null <<EOF
 [Unit]
 Description=0GChainD Service
@@ -49,13 +46,11 @@ LimitNOFILE=4096
 [Install]
 WantedBy=multi-user.target
 EOF
-```
-```
+
 sudo systemctl daemon-reload
 sudo systemctl restart geth
 sleep 5
 sudo systemctl restart 0gchaind
-```
-```
+
 sudo journalctl -u 0gchaind -u geth -f
 ```
