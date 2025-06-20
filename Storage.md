@@ -129,6 +129,14 @@ tail -f ~/0g-storage-node/run/log/zgs.log.$(TZ=UTC date +%Y-%m-%d) | grep tx_seq
 curl -X POST http://localhost:5678 -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"zgs_getStatus","params":[],"id":1}'  | jq
 ```
 
+### Snap
+```
+systemctl stop zgsd
+rm -rf $HOME/0g-storage-node/run/db/flow_db
+wget http://149.102.132.207/0g_storage/flow_db.tar.gz -O $HOME/0g-storage-node/run/db/flow_db.tar.gz && tar -xzvf $HOME/0g-storage-node/run/db/flow_db.tar.gz -C $HOME/0g-storage-node/run/db/
+systemctl start zgsd
+```
+
 
 ### 👉 Güncelleme
 
