@@ -92,7 +92,7 @@ source $HOME/.bash_profile
 
 ```bash
 mkdir -p $HOME/.0gchaind
-cp -r $HOME/galileo-used/0g-home $HOME/.0gchaind
+cp -r $HOME/galileo-used/validator/0g-home $HOME/.0gchaind
 ```
 
 ```bash
