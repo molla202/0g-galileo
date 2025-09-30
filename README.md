@@ -71,10 +71,10 @@ mv $HOME/galileo-v3.0.0 $HOME/galileo-used
 ### ➡️ Set Permissions
 
 ```bash
-sudo chmod 777 $HOME/galileo-used/bin/geth
-sudo chmod 777 $HOME/galileo-used/bin/0gchaind
-cp $HOME/galileo-used/bin/geth $HOME/go/bin/geth
-cp $HOME/galileo-used/bin/0gchaind $HOME/go/bin/0gchaind
+sudo chmod 777 $HOME/galileo-used/validator/bin/geth
+sudo chmod 777 $HOME/galileo-used/validator/bin/0gchaind
+cp $HOME/galileo-used/validator/bin/geth $HOME/go/bin/geth
+cp $HOME/galileo-used/validator/bin/0gchaind $HOME/go/bin/0gchaind
 ```
 
 ## 1️⃣ Set Environment Variables
