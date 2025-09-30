@@ -104,7 +104,10 @@ geth init --datadir $HOME/.0gchaind/0g-home/geth-home $HOME/galileo-used/validat
 ```bash
 0gchaind init $OG_MONIKER --home $HOME/.0gchaind/tmp
 ```
-
+```
+cp $HOME/galileo-used/validator/geth-config.toml $HOME/galileo-used/
+cp $HOME/galileo-used/validator/kzg-trusted-setup.json $HOME/galileo-used/
+```
 ```bash
 mv $HOME/.0gchaind/tmp/data/priv_validator_state.json $HOME/.0gchaind/0g-home/0gchaind-home/data/
 mv $HOME/.0gchaind/tmp/config/node_key.json $HOME/.0gchaind/0g-home/0gchaind-home/config/
@@ -173,14 +176,6 @@ WorkingDirectory=$HOME/galileo-used
 ExecStart=$HOME/go/bin/0gchaind start \
     --rpc.laddr tcp://0.0.0.0:${OG_PORT}657 \
     --chaincfg.chain-spec testnet \
-    --kzg.trusted-setup-path=$HOME/galileo-used/validator/kzg-trusted-setup.json \
-    --engine.jwt-secret-path=$HOME/galileo-used/validator/jwt-secret.hex \
-    --kzg.implementation=crate-crypto/go-kzg-4844 \
-    --block-store-service.enabled \
-    --node-api.enabled \
-    --node-api.logging \
-    --node-api.address 0.0.0.0:${OG_PORT}500 \
-    --pruning=nothing \
     --home=$HOME/.0gchaind/0g-home/0gchaind-home \
     --p2p.external_address=$(curl -s http://ipv4.icanhazip.com):${OG_PORT}656
 Restart=always
