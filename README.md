@@ -172,7 +172,7 @@ User=$USER
 WorkingDirectory=$HOME/galileo-used
 ExecStart=$HOME/go/bin/0gchaind start \
     --rpc.laddr tcp://0.0.0.0:${OG_PORT}657 \
-    --chain-spec devnet \
+    --chaincfg.chain-spec testnet \
     --kzg.trusted-setup-path=$HOME/galileo-used/validator/kzg-trusted-setup.json \
     --engine.jwt-secret-path=$HOME/galileo-used/validator/jwt-secret.hex \
     --kzg.implementation=crate-crypto/go-kzg-4844 \
